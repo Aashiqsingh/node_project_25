@@ -1,0 +1,9 @@
+// console.log("hello world!");
+
+// var main = require("./main")
+
+
+// console.log(main);
+// console.log(main.userName);
+// console.log(main.userAge);
+// main.getAllUser()
