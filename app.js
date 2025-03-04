@@ -13,6 +13,18 @@ app.use(roleRoutes);
 const userRoutes = require("./src/routes/userRoutes")
 app.use(userRoutes);
 
+const stateRoutes = require("./src/routes/stateRoutes");
+app.use('/state', stateRoutes)
+
+const cityRoutes = require("./src/routes/cityRoutes");
+app.use('/city', cityRoutes)
+
+const areaRoutes = require("./src/routes/areaRoutes");
+app.use('/area', areaRoutes)
+
+const hordingRoutes = require("./src/routes/hordingRoutes");
+app.use('/hording', hordingRoutes)
+
 
 mongoose.connect("mongodb://127.0.0.1:27017/25_node_project").then(()=>{
     console.log("Database connection established..");

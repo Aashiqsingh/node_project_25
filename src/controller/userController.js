@@ -58,7 +58,9 @@ const login = async(req,res)=>{
     const email = req.body.email;
     const password = req.body.password;
 
-    const foundUserByEmail = await userModel.findOne({email:email});
+    const foundUserByEmail = await userModel.findOne({email:email}).populate("roleId")
+    console.log(foundUserByEmail);
+    
     
     if(foundUserByEmail != null)
     {
