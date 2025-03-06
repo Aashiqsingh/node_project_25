@@ -32,6 +32,20 @@ const getAllArea = async(req,res)=>{
     }
 }
 
+const getAreaByState = async(req,res)=>{
+    try{
+        const areas = await areaModel.find({cityId:req.params.cityId});
+        res.status(200).json({
+            message: "Areas fetched successfully",
+            data: areas
+        })
+    }catch(err){
+        res.json({
+            message: err.message
+        })
+    }
+}
+
 module.exports = {
-    addArea,getAllArea
+    addArea,getAllArea,getAreaByState
 }

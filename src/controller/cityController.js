@@ -30,6 +30,21 @@ const getAllCity = async(req,res)=>{
     }
 }
 
+const getCityByStateId = async(req,res)=>{
+    try{
+        const cities = await cityModel.find({stateId : req.params.stateId});
+        res.status(200).json({
+            message:"city found ",
+            data: cities
+        })
+    }catch(err){
+        res.status(500).json({
+            message:"Error fetching cities by state id",
+            error: err.message
+        })
+    }
+}
+
 module.exports = {
-    addCity,getAllCity
+    addCity,getAllCity,getCityByStateId
 }
