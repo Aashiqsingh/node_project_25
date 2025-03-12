@@ -1,5 +1,6 @@
 const userModel = require("../models/userModel");
 const bcrypt = require("bcrypt")
+const mailUtil = require("../utils/MailUtil");
 
 const addUser = async(req,res)=>{
 
@@ -42,6 +43,7 @@ const signup = async(req,res)=>{
         req.body.password = hashedPassword
 
         const createdUser = await userModel.create(req.body);
+        const response = await mailUtil.sendingMail(createdUser.email,"hello varun bhatiya","hii only for test")
         res.json({
             message:"User created successfully..",
             data:createdUser

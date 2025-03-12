@@ -4,25 +4,25 @@ const Schema = mongoose.Schema;
 const hordingSchema = new Schema({
     hoardingDimension:{
         type: String,
-        required: true
+        // required: true
     },
     hoardingType:{
         enum: ['Unipole', 'Billboard', 'Gantry', 'Digital'],
-        required: true,
+        // required: true,
         type: String
     },
     Availablity_Status:{
         type:Boolean,
-        required: true,
+        // required: true,
         default: true
     },
     hourlyRate:{
         type: Number,
-        required: true
+        // required: true
     },
     hordingURL:{
         type: String,
-        required: true
+        // required: true
     },
     stateId:{
         type:Schema.Types.ObjectId,
@@ -42,11 +42,11 @@ const hordingSchema = new Schema({
     },
     latitude:{
         type: Number,
-        required: true
+        // required: true
     },
     longitude:{
         type: Number,
-        required: true
+        // required: true
     }
 },
 {
