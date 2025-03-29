@@ -102,7 +102,42 @@ const getHordingByUserId = async(req,res)=>{
     }
 }
 
+const updateHording = async(req,res)=>{
+    try{
+        const updatedHording = await hordingModel.findByIdAndUpdate(req.params.id,req.body,{new:true});
+        res.status(200).json({
+            message: "Hording updated successfully",
+            data: updatedHording
+        })
+    }catch(err){
+        res.status(500).json({
+            message: err.message
+        })
+    }
+}
+
+
+const getHordingById = async(req,res)=>{
+    try{
+        const hording = await hordingModel.findById(req.params.id);
+        if(!hording){
+            return res.status(404).json({
+                message: "Hording not found"
+            })
+        }
+        else{
+            res.status(200).json({
+                message: "Hording data by id",
+                data: hording
+            })
+        }
+    }catch(err){
+        res.status(500).json({
+            message: err.message
+        })
+    }
+}
 
 module.exports = {
-    addHording,getAllHording,addHordingWithFile,getHordingByUserId
+    addHording,getAllHording,addHordingWithFile,getHordingByUserId,updateHording,getHordingById
 }
